@@ -1,0 +1,12 @@
+.settings-bar {
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  justify-content: space-between;
+
+  &__right {
+    display: flex;
+    gap: 16px;
+  }
+}

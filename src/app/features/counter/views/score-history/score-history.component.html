@@ -1,0 +1,9 @@
+<div class="score-history">
+  <div class="score-history__list">
+    @for (score of counterService.getScoresList()?.reverse(); track $index) {
+    <app-score-card [score]="score"></app-score-card>
+    } @empty {
+    <p>No recent scores.</p>
+    }
+  </div>
+</div>

@@ -1,1 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$light-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$cyan-palette,
+      tertiary: mat.$orange-palette,
+    ),
+  )
+);
+$dark-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: dark,
+      primary: mat.$cyan-palette,
+      tertiary: mat.$green-palette,
+    ),
+  )
+);
+
+html {
+  // @include mat.core-theme($light-theme);
+  @include mat.all-component-themes($light-theme);
+  background: mat.get-theme-color($light-theme, surface);
+
+  &.mat-typography {
+    color: black;
+  }
+
+  &.dark {
+    // @include mat.core-theme($dark-theme);
+    @include mat.all-component-colors($dark-theme);
+    background: mat.get-theme-color($dark-theme, surface);
+    .mat-typography {
+      color: #e9e0e4;
+    }
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.player-1-bg {
+  background-color: #00dddd !important;
+}
+
+.player-1-color {
+  color: #00dddd !important;
+}
+
+.player-2-bg {
+  background-color: #00c0dd !important;
+}
+
+.player-2-color {
+  color: #00d6dd !important;
+}
+
+.player-3-bg {
+  background-color: #00ddcb !important;
+}
+
+.player-3-color {
+  color: #00ddcb !important;
+}
+
+.menu-btn {
+  background-color: #01474f !important;
+  color: white !important;
+}

@@ -1,0 +1,10 @@
+<button
+  [class.player-1-bg]="player.id === 1"
+  [class.player-2-bg]="player.id === 2"
+  class="score-btn secondary-button"
+  mat-flat-button
+  (click)="handleClick(1)"
+>
+  <div class="score-btn__score">{{ score }}</div>
+  <div class="score-btn__player-name">{{ player.name }}</div>
+</button>

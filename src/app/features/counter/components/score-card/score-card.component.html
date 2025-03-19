@@ -1,0 +1,11 @@
+<div class="score-card">
+  <div
+    class="score-card__name"
+    [class.player-1-color]="score.player.id === 1"
+    [class.player-2-color]="score.player.id === 2"
+    [class.player-3-color]="score.player.id === 2"
+  >
+    {{ score.player.name }}
+  </div>
+  <div class="score-card__score">+{{ score.score }}</div>
+</div>

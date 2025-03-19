@@ -1,0 +1,15 @@
+.score-counter {
+  display: grid;
+
+  height: calc(100vh - 75px);
+  margin: 0;
+  padding: 0;
+
+  .two-players {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .three-players {
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+}

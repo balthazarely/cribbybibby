@@ -1,0 +1,10 @@
+.settings {
+  height: calc(100vh - 75px);
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 24px;
+  }
+}

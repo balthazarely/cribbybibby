@@ -1,0 +1,16 @@
+<div class="counter">
+  <div class="counter__wrapper">
+    <app-score-counter
+      *ngIf="currentView === 'scoreCounter'"
+    ></app-score-counter>
+    <app-score-history
+      *ngIf="currentView === 'scoreHistory'"
+    ></app-score-history>
+  </div>
+  <div class="counter__settings">
+    <app-settings-bar
+      (scoreViewToggle)="toggleView()"
+      [currentView]="oppositeView"
+    ></app-settings-bar>
+  </div>
+</div>

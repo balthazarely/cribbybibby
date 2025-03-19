@@ -1,0 +1,11 @@
+.score-history {
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+  }
+}

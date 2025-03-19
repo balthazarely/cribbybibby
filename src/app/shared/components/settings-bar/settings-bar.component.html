@@ -1,0 +1,19 @@
+<div class="settings-bar">
+  <button
+    class="menu-btn"
+    (click)="settingsClick()"
+    mat-fab
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>settings</mat-icon>
+  </button>
+  <div class="settings-bar__right">
+    <button class="menu-btn" mat-flat-button (click)="resetScore()">
+      Reset
+    </button>
+    <button class="menu-btn" mat-flat-button (click)="undo()">Undo</button>
+    <button class="menu-btn" mat-flat-button (click)="viewToggleClick()">
+      {{ currentView }}
+    </button>
+  </div>
+</div>

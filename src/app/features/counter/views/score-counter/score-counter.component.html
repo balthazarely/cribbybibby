@@ -1,0 +1,22 @@
+<div
+  class="score-counter"
+  [class.two-players]="settingsService.numPlayers() == 2"
+  [class.three-players]="settingsService.numPlayers() == 3"
+>
+  <app-score-counter-button
+    score="{{ counterService.getTotalScores().player1 }}"
+    [player]="settingsService.players()[0]"
+    (buttonClick)="increaseScore(1, $event)"
+  ></app-score-counter-button>
+  <app-score-counter-button
+    score="{{ counterService.getTotalScores().player2 }}"
+    [player]="settingsService.players()[1]"
+    (buttonClick)="increaseScore(2, $event)"
+  ></app-score-counter-button>
+  <app-score-counter-button
+    *ngIf="settingsService.numPlayers() == 3"
+    score="{{ counterService.getTotalScores().player3 }}"
+    [player]="settingsService.players()[2]"
+    (buttonClick)="increaseScore(3, $event)"
+  ></app-score-counter-button>
+</div>
