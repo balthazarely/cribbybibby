@@ -1,10 +1,15 @@
 .settings {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 100px);
 
   &__form {
     display: flex;
     flex-direction: column;
     padding: 16px;
     gap: 24px;
+
+    .reset-btn {
+      background-color: #c12727 !important;
+      color: white !important;
+    }
   }
 }

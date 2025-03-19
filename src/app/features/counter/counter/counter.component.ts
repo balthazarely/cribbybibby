@@ -43,9 +43,9 @@ export class CounterComponent {
 
   get oppositeView(): string {
     if (this.currentView === ViewType.ScoreCounter) {
-      return 'Show History';
+      return 'History';
     } else {
-      return 'Show Counter';
+      return 'Counter';
     }
   }
 }

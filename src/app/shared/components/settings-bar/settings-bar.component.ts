@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { CounterService } from '../../../features/counter/services/counter.service';
 import { filter, map, tap } from 'rxjs';
 import { SharedModule } from '../../modules/shared.module';
+import { MatDialog } from '@angular/material/dialog';
+import { ResetDilaogComponent } from './reset-dilaog/reset-dilaog.component';
 
 @Component({
   selector: 'app-settings-bar',
@@ -16,12 +18,22 @@ import { SharedModule } from '../../modules/shared.module';
 })
 export class SettingsBarComponent {
   currRoute$: any;
-  counterService = inject(CounterService);
+  // counterService = inject(CounterService);
+  currentRoute: string = 'asf';
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private counterService: CounterService,
+    private dialog: MatDialog
+  ) {}
 
   @Input() currentView!: string;
   @Output() scoreViewToggle = new EventEmitter<void>();
+
+  ngOnInit() {
+    this.currentRoute = this.router.url;
+  }
 
   viewToggleClick() {
     this.scoreViewToggle.emit();
@@ -41,6 +53,6 @@ export class SettingsBarComponent {
   }
 
   resetScore() {
-    this.counterService.resetScore();
+    this.dialog.open(ResetDilaogComponent);
   }
 }

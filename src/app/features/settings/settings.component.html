@@ -1,9 +1,5 @@
 <div class="settings">
-  <form
-    class="settings__form"
-    [formGroup]="settingsForm"
-    (submit)="submitSettings()"
-  >
+  <form class="settings__form" [formGroup]="settingsForm">
     <h2>Settings</h2>
     <div>
       <mat-button-toggle-group formControlName="numPlayers">
@@ -36,7 +32,11 @@
       <mat-error>player 3 name is <strong>required</strong></mat-error>
       }
     </mat-form-field>
-    <button [disabled]="!settingsForm.valid" mat-flat-button>
+    <button
+      [disabled]="!settingsForm.valid"
+      (click)="submitSettings()"
+      mat-flat-button
+    >
       Save Changes
     </button>
   </form>

@@ -7,11 +7,15 @@
   >
     <mat-icon>settings</mat-icon>
   </button>
-  <div class="settings-bar__right">
-    <button class="menu-btn" mat-flat-button (click)="resetScore()">
-      Reset
+  <div class="settings-bar__right" *ngIf="currentRoute === '/'">
+    <button class="menu-btn" mat-icon-button (click)="undo()">
+      <mat-icon>undo</mat-icon>
     </button>
-    <button class="menu-btn" mat-flat-button (click)="undo()">Undo</button>
+
+    <button class="menu-btn" mat-icon-button (click)="resetScore()">
+      <mat-icon>history</mat-icon>
+    </button>
+
     <button class="menu-btn" mat-flat-button (click)="viewToggleClick()">
       {{ currentView }}
     </button>

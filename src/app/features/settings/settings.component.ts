@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -17,6 +17,8 @@ import { Router } from '@angular/router';
 import { CounterService } from '../counter/services/counter.service';
 import { LocalStorageService } from '../../core/services/local-storage.service';
 import { SharedModule } from '../../shared/modules/shared.module';
+import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-settings',
   standalone: true,
@@ -40,6 +42,7 @@ export class SettingsComponent {
   router = inject(Router);
   counterService = inject(CounterService);
   localStorageService = inject(LocalStorageService);
+  readonly dialog = inject(MatDialog);
 
   settingsForm = new FormGroup({
     numPlayers: new FormControl(2, [Validators.required]),
@@ -81,6 +84,7 @@ export class SettingsComponent {
         },
       ],
     };
+
     this.settingsService.setSettings(payload);
     this.updatePlayersScoreNames();
     this.router.navigate(['/']);
@@ -100,7 +104,6 @@ export class SettingsComponent {
         },
       };
     });
-    console.log(newScores);
 
     this.localStorageService.setItem('easy-crib-score', newScores);
   }
